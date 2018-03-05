@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TwitterChallenge.Models.TweetViewModel>
+@{
+    ViewBag.Title = "Salesforce Timeline";
+}
+
+<span class="first">
+    <h3>Search Tweets</h3> : <input type="text" id="search" />
+</span>
+<span class="first">
+    <h3>SalesForce</h3>
+</span>
+<ul class="timeline">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="avatar">
+                <img src="@item.ImageUrl" alt="@item.ScreenName" />
+                <div class="hover">
+                    <div class="icon-twitter"></div>
+                </div>
+            </div>
+            <div class="bubble-container">
+                <div class="bubble">
+                    <div>
+                        <h3>@Html.DisplayFor(modelItem => item.UserName)</h3><h3>@Html.DisplayFor(modelItem => item.ScreenName)</h3>
+                    </div>
+                    <div>
+                        Retweeted&nbsp;@Html.DisplayFor(modelItem => item.RetweetCount)&nbsp;times<br />
+                    </div>
+                    <div>                        
+                        @Html.Raw(item.Text))<br />
+                    </div>
+                    <div>
+                        <h3>Posted On :</h3> @Html.DisplayFor(modelItem => item.TweetDate)
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+@Scripts.Render("~/Scripts/TwitterChallenge/refreshTweets.js")
+@Scripts.Render("~/Scripts/TwitterChallenge/searchTweets.js")
