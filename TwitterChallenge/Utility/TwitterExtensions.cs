@@ -6,7 +6,7 @@ namespace TwitterChallenge.Utility
 {
     /// <summary>
     /// Extends the LinqToTwitter Library
-    /// Most part of the code below is taken directly from internet
+    /// Most part of the code below is taken directly from stackoverflow, specially the regex part.
     /// </summary>
     public static class TwitterExtensions
     {
